@@ -1,0 +1,411 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake:211 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 6.2.9200 - AMD64
+...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+      Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:42:46.
+      
+      Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\3.27.2\\CompilerIdCXX\\CompilerIdCXX.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+      PrepareForBuild:
+        Tworzenie katalogu ÔÇ×Debug\\ÔÇŁ.
+        Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+        Tworzenie katalogu ÔÇ×Debug\\CompilerIdCXX.tlog\\ÔÇŁ.
+      InitializeBuildStatus:
+        Trwa tworzenie ÔÇ×Debug\\CompilerIdCXX.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+        Modyfikowanie ÔÇ×Debug\\CompilerIdCXX.tlog\\unsuccessfulbuildÔÇŁ.
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\3.27.2\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Usuwanie pliku ÔÇ×Debug\\CompilerIdCXX.tlog\\unsuccessfulbuildÔÇŁ.
+        Modyfikowanie ÔÇ×Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstateÔÇŁ.
+      Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\3.27.2\\CompilerIdCXX\\CompilerIdCXX.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe).
+      
+      Kompilacja powiod┼éa si─Ö.
+          Ostrze┼╝enia: 0
+          Liczba b┼é─Öd├│w: 0
+      
+      Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.94
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/3.27.2/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-chf6c7"
+      binary: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-chf6c7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-chf6c7'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_93095.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+        Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:42:48.
+        
+        Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-chf6c7\\cmTC_93095.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+        PrepareForBuild:
+          Tworzenie katalogu ÔÇ×cmTC_93095.dir\\Debug\\ÔÇŁ.
+          Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+          Tworzenie katalogu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-chf6c7\\Debug\\ÔÇŁ.
+          Tworzenie katalogu ÔÇ×cmTC_93095.dir\\Debug\\cmTC_93095.tlog\\ÔÇŁ.
+        InitializeBuildStatus:
+          Trwa tworzenie ÔÇ×cmTC_93095.dir\\Debug\\cmTC_93095.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+          Modyfikowanie ÔÇ×cmTC_93095.dir\\Debug\\cmTC_93095.tlog\\unsuccessfulbuildÔÇŁ.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_93095.dir\\Debug\\\\" /Fd"cmTC_93095.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\mingw64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ wersja kompilatora optymalizuj─ůcego 19.44.35228 dla x64
+          Copyright (C) Microsoft Corporation. Wszystkie prawa zastrze┼╝one.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_93095.dir\\Debug\\\\" /Fd"cmTC_93095.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\mingw64\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-chf6c7\\Debug\\cmTC_93095.exe" /INCREMENTAL /ILK:"cmTC_93095.dir\\Debug\\cmTC_93095.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-chf6c7/Debug/cmTC_93095.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-chf6c7/Debug/cmTC_93095.lib" /MACHINE:X64  /machine:x64 cmTC_93095.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_93095.vcxproj -> C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-chf6c7\\Debug\\cmTC_93095.exe
+        FinalizeBuildStatus:
+          Usuwanie pliku ÔÇ×cmTC_93095.dir\\Debug\\cmTC_93095.tlog\\unsuccessfulbuildÔÇŁ.
+          Modyfikowanie ÔÇ×cmTC_93095.dir\\Debug\\cmTC_93095.tlog\\cmTC_93095.lastbuildstateÔÇŁ.
+        Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-chf6c7\\cmTC_93095.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe).
+        
+        Kompilacja powiod┼éa si─Ö.
+            Ostrze┼╝enia: 0
+            Liczba b┼é─Öd├│w: 0
+        
+        Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.47
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "build-vs2022/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+      Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:43:00.
+      
+      Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\3.27.2\\CompilerIdC\\CompilerIdC.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+      PrepareForBuild:
+        Tworzenie katalogu ÔÇ×Debug\\ÔÇŁ.
+        Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+        Tworzenie katalogu ÔÇ×Debug\\CompilerIdC.tlog\\ÔÇŁ.
+      InitializeBuildStatus:
+        Trwa tworzenie ÔÇ×Debug\\CompilerIdC.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+        Modyfikowanie ÔÇ×Debug\\CompilerIdC.tlog\\unsuccessfulbuildÔÇŁ.
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\3.27.2\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Usuwanie pliku ÔÇ×Debug\\CompilerIdC.tlog\\unsuccessfulbuildÔÇŁ.
+        Modyfikowanie ÔÇ×Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstateÔÇŁ.
+      Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\3.27.2\\CompilerIdC\\CompilerIdC.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe).
+      
+      Kompilacja powiod┼éa si─Ö.
+          Ostrze┼╝enia: 0
+          Liczba b┼é─Öd├│w: 0
+      
+      Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.82
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/3.27.2/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "build-vs2022/_deps/glfw-src/CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-qxayee"
+      binary: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-qxayee"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-qxayee'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3151f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+        Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:43:02.
+        
+        Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-qxayee\\cmTC_3151f.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+        PrepareForBuild:
+          Tworzenie katalogu ÔÇ×cmTC_3151f.dir\\Debug\\ÔÇŁ.
+          Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+          Tworzenie katalogu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-qxayee\\Debug\\ÔÇŁ.
+          Tworzenie katalogu ÔÇ×cmTC_3151f.dir\\Debug\\cmTC_3151f.tlog\\ÔÇŁ.
+        InitializeBuildStatus:
+          Trwa tworzenie ÔÇ×cmTC_3151f.dir\\Debug\\cmTC_3151f.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+          Modyfikowanie ÔÇ×cmTC_3151f.dir\\Debug\\cmTC_3151f.tlog\\unsuccessfulbuildÔÇŁ.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3151f.dir\\Debug\\\\" /Fd"cmTC_3151f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\mingw64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ wersja kompilatora optymalizuj─ůcego 19.44.35228 dla x64
+          Copyright (C) Microsoft Corporation. Wszystkie prawa zastrze┼╝one.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3151f.dir\\Debug\\\\" /Fd"cmTC_3151f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\mingw64\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-qxayee\\Debug\\cmTC_3151f.exe" /INCREMENTAL /ILK:"cmTC_3151f.dir\\Debug\\cmTC_3151f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-qxayee/Debug/cmTC_3151f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-qxayee/Debug/cmTC_3151f.lib" /MACHINE:X64  /machine:x64 cmTC_3151f.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_3151f.vcxproj -> C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-qxayee\\Debug\\cmTC_3151f.exe
+        FinalizeBuildStatus:
+          Usuwanie pliku ÔÇ×cmTC_3151f.dir\\Debug\\cmTC_3151f.tlog\\unsuccessfulbuildÔÇŁ.
+          Modyfikowanie ÔÇ×cmTC_3151f.dir\\Debug\\cmTC_3151f.tlog\\cmTC_3151f.lastbuildstateÔÇŁ.
+        Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-qxayee\\cmTC_3151f.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe).
+        
+        Kompilacja powiod┼éa si─Ö.
+            Ostrze┼╝enia: 0
+            Liczba b┼é─Öd├│w: 0
+        
+        Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.60
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/mingw64/share/cmake-3.27/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "C:/mingw64/share/cmake-3.27/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/mingw64/share/cmake-3.27/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build-vs2022/_deps/glfw-src/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-alwggx"
+      binary: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-alwggx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-alwggx'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_29df2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+        Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:43:05.
+        
+        Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\cmTC_29df2.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+        PrepareForBuild:
+          Tworzenie katalogu ÔÇ×cmTC_29df2.dir\\Debug\\ÔÇŁ.
+          Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+          Tworzenie katalogu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\Debug\\ÔÇŁ.
+          Tworzenie katalogu ÔÇ×cmTC_29df2.dir\\Debug\\cmTC_29df2.tlog\\ÔÇŁ.
+        InitializeBuildStatus:
+          Trwa tworzenie ÔÇ×cmTC_29df2.dir\\Debug\\cmTC_29df2.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+          Modyfikowanie ÔÇ×cmTC_29df2.dir\\Debug\\cmTC_29df2.tlog\\unsuccessfulbuildÔÇŁ.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_29df2.dir\\Debug\\\\" /Fd"cmTC_29df2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\src.c"
+          Microsoft (R) C/C++ wersja kompilatora optymalizuj─ůcego 19.44.35228 dla x64
+          Copyright (C) Microsoft Corporation. Wszystkie prawa zastrze┼╝one.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_29df2.dir\\Debug\\\\" /Fd"cmTC_29df2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\src.c"
+          src.c
+        C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\src.c(1,10): error C1083: Nie mo┼╝na otworzy─ç pliku do┼é─ůcz: 'pthread.h': No such file or directory [C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\cmTC_29df2.vcxproj]
+        Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\cmTC_29df2.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe) ÔÇö NIEPOWODZENIE.
+        
+        Kompilacja NIE POWIOD┼üA SI─ś.
+        
+        ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\cmTC_29df2.vcxprojÔÇŁ (domy┼Ťlny element docelowy) (1)->
+        (element docelowy ClCompile) -> 
+          C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\src.c(1,10): error C1083: Nie mo┼╝na otworzy─ç pliku do┼é─ůcz: 'pthread.h': No such file or directory [C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-alwggx\\cmTC_29df2.vcxproj]
+        
+            Ostrze┼╝enia: 0
+            Liczba b┼é─Öd├│w: 1
+        
+        Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.55
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/mingw64/share/cmake-3.27/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/mingw64/share/cmake-3.27/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "build-vs2022/_deps/glfw-src/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-34negr"
+      binary: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-34negr"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-34negr'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3a441.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+        Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:43:07.
+        
+        Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\cmTC_3a441.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+        PrepareForBuild:
+          Tworzenie katalogu ÔÇ×cmTC_3a441.dir\\Debug\\ÔÇŁ.
+          Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+          Tworzenie katalogu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\Debug\\ÔÇŁ.
+          Tworzenie katalogu ÔÇ×cmTC_3a441.dir\\Debug\\cmTC_3a441.tlog\\ÔÇŁ.
+        InitializeBuildStatus:
+          Trwa tworzenie ÔÇ×cmTC_3a441.dir\\Debug\\cmTC_3a441.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+          Modyfikowanie ÔÇ×cmTC_3a441.dir\\Debug\\cmTC_3a441.tlog\\unsuccessfulbuildÔÇŁ.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3a441.dir\\Debug\\\\" /Fd"cmTC_3a441.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ wersja kompilatora optymalizuj─ůcego 19.44.35228 dla x64
+          Copyright (C) Microsoft Corporation. Wszystkie prawa zastrze┼╝one.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3a441.dir\\Debug\\\\" /Fd"cmTC_3a441.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\Debug\\cmTC_3a441.exe" /INCREMENTAL /ILK:"cmTC_3a441.dir\\Debug\\cmTC_3a441.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-34negr/Debug/cmTC_3a441.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-34negr/Debug/cmTC_3a441.lib" /MACHINE:X64  /machine:x64 cmTC_3a441.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: nie mo┼╝na otworzy─ç pliku "pthreads.lib" [C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\cmTC_3a441.vcxproj]
+        Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\cmTC_3a441.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe) ÔÇö NIEPOWODZENIE.
+        
+        Kompilacja NIE POWIOD┼üA SI─ś.
+        
+        ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\cmTC_3a441.vcxprojÔÇŁ (domy┼Ťlny element docelowy) (1)->
+        (element docelowy Link) -> 
+          LINK : fatal error LNK1104: nie mo┼╝na otworzy─ç pliku "pthreads.lib" [C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-34negr\\cmTC_3a441.vcxproj]
+        
+            Ostrze┼╝enia: 0
+            Liczba b┼é─Öd├│w: 1
+        
+        Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.49
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/mingw64/share/cmake-3.27/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "C:/mingw64/share/cmake-3.27/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/mingw64/share/cmake-3.27/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "build-vs2022/_deps/glfw-src/CMakeLists.txt:60 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-czi4g4"
+      binary: "C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-czi4g4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-src/CMake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-czi4g4'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e6977.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Wersja programu MSBuild 17.14.40+3e7442088 dla .NET Framework
+        Kompilacja rozpocz─Ö┼éa si─Ö 10.07.2026 20:43:09.
+        
+        Projekt ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\cmTC_e6977.vcxprojÔÇŁ w w─Ö┼║le 1 (domy┼Ťlne elementy docelowe).
+        PrepareForBuild:
+          Tworzenie katalogu ÔÇ×cmTC_e6977.dir\\Debug\\ÔÇŁ.
+          Dane wyj┼Ťciowe ze struktur─ů s─ů w┼é─ůczone. Formatowanie diagnostyki kompilatora b─Ödzie odzwierciedla─ç hierarchi─Ö b┼é─Öd├│w. Aby uzyska─ç wi─Öcej informacji, zobacz https://aka.ms/cpp/structured-output.
+          Tworzenie katalogu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\Debug\\ÔÇŁ.
+          Tworzenie katalogu ÔÇ×cmTC_e6977.dir\\Debug\\cmTC_e6977.tlog\\ÔÇŁ.
+        InitializeBuildStatus:
+          Trwa tworzenie ÔÇ×cmTC_e6977.dir\\Debug\\cmTC_e6977.tlog\\unsuccessfulbuildÔÇŁ, poniewa┼╝ okre┼Ťlono "AlwaysCreate".
+          Modyfikowanie ÔÇ×cmTC_e6977.dir\\Debug\\cmTC_e6977.tlog\\unsuccessfulbuildÔÇŁ.
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e6977.dir\\Debug\\\\" /Fd"cmTC_e6977.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ wersja kompilatora optymalizuj─ůcego 19.44.35228 dla x64
+          Copyright (C) Microsoft Corporation. Wszystkie prawa zastrze┼╝one.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e6977.dir\\Debug\\\\" /Fd"cmTC_e6977.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\Debug\\cmTC_e6977.exe" /INCREMENTAL /ILK:"cmTC_e6977.dir\\Debug\\cmTC_e6977.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-czi4g4/Debug/cmTC_e6977.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/marcin/Desktop/magister/build-vs2022/CMakeFiles/CMakeScratch/TryCompile-czi4g4/Debug/cmTC_e6977.lib" /MACHINE:X64  /machine:x64 cmTC_e6977.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: nie mo┼╝na otworzy─ç pliku "pthread.lib" [C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\cmTC_e6977.vcxproj]
+        Kompilowanie projektu ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\cmTC_e6977.vcxprojÔÇŁ wykonane (domy┼Ťlne elementy docelowe) ÔÇö NIEPOWODZENIE.
+        
+        Kompilacja NIE POWIOD┼üA SI─ś.
+        
+        ÔÇ×C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\cmTC_e6977.vcxprojÔÇŁ (domy┼Ťlny element docelowy) (1)->
+        (element docelowy Link) -> 
+          LINK : fatal error LNK1104: nie mo┼╝na otworzy─ç pliku "pthread.lib" [C:\\Users\\marcin\\Desktop\\magister\\build-vs2022\\CMakeFiles\\CMakeScratch\\TryCompile-czi4g4\\cmTC_e6977.vcxproj]
+        
+            Ostrze┼╝enia: 0
+            Liczba b┼é─Öd├│w: 1
+        
+        Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.42
+        
+      exitCode: 1
+...

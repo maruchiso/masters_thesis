@@ -1,0 +1,14 @@
+# Target labels
+ glad-populate
+# Source files and their labels
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/glad-populate
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/378dd0b2547e8c212d7ed32c06a53eb0/glad-populate.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/57f461e06e8fd4bd079cf1abab648f69/glad-populate-complete.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-build.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-configure.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-download.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-install.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-mkdir.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-patch.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-test.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-update.rule

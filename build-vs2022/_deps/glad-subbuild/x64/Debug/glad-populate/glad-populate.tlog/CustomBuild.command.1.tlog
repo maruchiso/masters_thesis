@@ -1,0 +1,150 @@
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-MKDIR.RULE
+setlocal
+C:\mingw64\bin\cmake.exe -Dcfgdir=/Debug -P C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/tmp/glad-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\marcin\Desktop\magister\build-vs2022\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -P C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/tmp/glad-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glad-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -Dcan_fetch=YES -P C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/tmp/glad-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-PATCH.RULE
+setlocal
+C:\mingw64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glad-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glad-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glad-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\19D553E6A24362EC45E704E0FB5C27E4\GLAD-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glad-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\57F461E06E8FD4BD079CF1ABAB648F69\GLAD-POPULATE-COMPLETE.RULE
+setlocal
+C:\mingw64\bin\cmake.exe -E make_directory C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/Debug/glad-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+C:\mingw64\bin\cmake.exe -E touch C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/glad-populate-prefix/src/glad-populate-stamp/Debug/glad-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKEFILES\378DD0B2547E8C212D7ED32C06A53EB0\GLAD-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLAD-SUBBUILD\CMAKELISTS.TXT
+setlocal
+C:\mingw64\bin\cmake.exe -SC:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild -BC:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild --check-stamp-file C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

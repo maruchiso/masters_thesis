@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\e4d97e1109204c1ae85f257c6a802a99\glm-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\331f01a84ca8216cef4c9684784e1e4c\glm-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\3f3c082819aa89a3076b175f07794d0c\glm-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glm-subbuild\CMakeFiles\glm-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BBBF762E-4E26-3EFA-AEF9-C290673B945C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

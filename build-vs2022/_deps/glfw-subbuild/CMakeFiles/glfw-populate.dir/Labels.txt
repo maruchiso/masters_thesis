@@ -1,0 +1,14 @@
+# Target labels
+ glfw-populate
+# Source files and their labels
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/glfw-populate
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/0a327550a6eb4c031260876c5e2f824e/glfw-populate.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/a17a58fe0fb2c752c53cd0bf66576ae8/glfw-populate-complete.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-build.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-configure.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-download.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-install.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-mkdir.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-patch.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-test.rule
+C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-subbuild/CMakeFiles/2ec772d7dcfac20b40bc95da45d10805/glfw-populate-update.rule

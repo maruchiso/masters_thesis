@@ -1,0 +1,10 @@
+^C:\USERS\MARCIN\DESKTOP\MAGISTER\BUILD-VS2022\_DEPS\GLFW-SRC\SRC\CMAKELISTS.TXT
+setlocal
+C:\mingw64\bin\cmake.exe -SC:/Users/marcin/Desktop/magister -BC:/Users/marcin/Desktop/magister/build-vs2022 --check-stamp-file C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glfw-build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

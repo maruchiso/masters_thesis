@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\2ec772d7dcfac20b40bc95da45d10805\glfw-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\a17a58fe0fb2c752c53cd0bf66576ae8\glfw-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\0a327550a6eb4c031260876c5e2f824e\glfw-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\marcin\Desktop\magister\build-vs2022\_deps\glfw-subbuild\CMakeFiles\glfw-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A02BB2D8-9FD3-33E9-B1F5-FCD588149B5E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

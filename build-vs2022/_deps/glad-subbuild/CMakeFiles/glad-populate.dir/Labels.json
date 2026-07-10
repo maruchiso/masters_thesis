@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/glad-populate"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/378dd0b2547e8c212d7ed32c06a53eb0/glad-populate.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/57f461e06e8fd4bd079cf1abab648f69/glad-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/marcin/Desktop/magister/build-vs2022/_deps/glad-subbuild/CMakeFiles/19d553e6a24362ec45e704e0fb5c27e4/glad-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"glad-populate"
+		],
+		"name" : "glad-populate"
+	}
+}
