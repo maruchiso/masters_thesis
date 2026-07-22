@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magister Renderer Project Guide</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f2ea;
+      --panel: #fffaf2;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --accent: #8a5a17;
+      --accent-soft: #f1dfbd;
+      --border: #d9cbb1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #f7f2e8 0%, #efe6d4 100%);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 920px;
+      margin: 32px auto;
+      padding: 40px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(47, 34, 13, 0.08);
+    }
+
+    h1, h2, h3 {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.35rem;
+      color: #2c210d;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      color: #3a2a14;
+      border-bottom: 2px solid var(--accent-soft);
+      padding-bottom: 0.35rem;
+    }
+
+    h3 {
+      margin-top: 1.2rem;
+      color: #4a381d;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .callout {
+      background: #fff3dd;
+      border-left: 5px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+
+    ul, ol {
+      padding-left: 1.4rem;
+    }
+
+    li + li {
+      margin-top: 0.35rem;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f3ead8;
+      padding: 0.12rem 0.35rem;
+      border-radius: 6px;
+    }
+
+    .file {
+      margin: 14px 0;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fffdf9;
+    }
+
+    .file strong {
+      color: var(--accent);
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Magister Renderer Project Guide</h1>
+    <p class="subtitle">A short explanation of what this OpenGL project currently does and how the main pieces fit together.</p>
+
+    <div class="callout">
+      <strong>Goal of the project:</strong> build a small OpenGL renderer that can later compare forward rendering, deferred shading, and visibility buffer techniques in a controlled scene.
+    </div>
+
+    <h2>1. What the project currently is</h2>
+    <p>The current codebase is a minimal OpenGL application. It opens a window, creates a camera, loads a shader, builds a small cube mesh, and draws that mesh every frame. This is the foundation that later rendering techniques will be added on top of.</p>
+
+    <h2>2. Main program flow</h2>
+    <ol>
+      <li><code>main.cpp</code> starts GLFW and creates the OpenGL window.</li>
+      <li>GLAD is loaded so OpenGL functions are available.</li>
+      <li>A <code>Camera</code> object is created to handle the view and projection matrices.</li>
+      <li>A <code>SimpleScene</code> object creates the cube geometry in GPU buffers.</li>
+      <li>Each frame, the program handles input, updates the scene, clears the screen, and draws the cube(s).</li>
+    </ol>
+
+    <h2>3. File-by-file explanation</h2>
+
+    <div class="file">
+      <strong>src/main.cpp</strong>
+      <p>This is the application entry point. It creates the window, sets up callbacks for resizing and mouse movement, enables depth testing, and runs the main rendering loop. It also reads keyboard input for movement and exits when <code>ESC</code> is pressed.</p>
+    </div>
+
+    <div class="file">
+      <strong>src/rendering/Camera.cpp</strong>
+      <p>The camera stores position, yaw, pitch, field of view, and aspect ratio. It produces:</p>
+      <ul>
+        <li>a view matrix using <code>glm::lookAt</code></li>
+        <li>a projection matrix using <code>glm::perspective</code></li>
+        <li>keyboard movement with <code>W</code>, <code>A</code>, <code>S</code>, <code>D</code></li>
+        <li>mouse look control for rotating the view</li>
+      </ul>
+    </div>
+
+    <div class="file">
+      <strong>src/rendering/SimpleScene.cpp</strong>
+      <p>This file creates the cube mesh and stores the vertex/index data in OpenGL buffers. In the render function, it builds a model matrix for each cube, combines it with the camera matrices, and sends the final matrix to the shader through the <code>uMVP</code> uniform.</p>
+    </div>
+
+    <div class="file">
+      <strong>shaders/fullscreen.vert</strong>
+      <p>This vertex shader transforms cube vertices from model space into clip space. It also passes world position and normal data to the fragment shader so lighting calculations can be done later.</p>
+    </div>
+
+    <div class="file">
+      <strong>shaders/solid_color.frag</strong>
+      <p>This fragment shader is very simple. It uses the current fragment depth to blend between two colors: a warm near color and a cooler far color. That creates a depth-based tint rather than real lighting. It is useful as a placeholder shader, but it is not yet the final lighting system.</p>
+    </div>
+
+    <h2>4. What you should see on screen</h2>
+    <p>When the program runs, you should see a cube rendered in the window with a background color. If the cube is rotated or moved, its faces may appear different because of perspective, but the geometry should still be a cube. If the scene looks broken, the likely causes are camera position, face culling, or the transform setup.</p>
+
+    <h2>5. Controls</h2>
+    <ul>
+      <li><strong>W</strong>, <strong>A</strong>, <strong>S</strong>, <strong>D</strong>: move the camera</li>
+      <li><strong>Mouse movement</strong>: look around</li>
+      <li><strong>ESC</strong>: close the window</li>
+    </ul>
+
+    <h2>6. Why the cube may look odd</h2>
+    <p>The cube can look stretched, clipped, or strange when the camera gets too close, when the object is rotated, or when back faces are hidden by culling. That does not necessarily mean the geometry is wrong. It usually means the current scene is still only a basic test scene, not a polished demo scene.</p>
+
+    <h2>7. What comes next</h2>
+    <ol>
+      <li>Keep the forward-rendering baseline stable.</li>
+      <li>Add real lighting using normals and one or more lights.</li>
+      <li>Use the same scene for deferred shading later.</li>
+      <li>Compare the two approaches on the same visual setup.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Important idea:</strong> this current code is a learning baseline. It is meant to help you understand the rendering pipeline before introducing the more complex deferred shading and visibility buffer work.
+    </div>
+  </main>
+</body>
+</html>

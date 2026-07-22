@@ -312,7 +312,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\marcin\Desktop\magister\src\main.cpp" />
     <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Camera.cpp" />
     <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Shader.cpp" />
-    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\SimpleScene.cpp" />
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Mesh.cpp" />
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Scene.cpp" />
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Framebuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\marcin\Desktop\magister\build-vs2022\ZERO_CHECK.vcxproj">

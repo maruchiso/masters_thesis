@@ -1,4 +1,6 @@
 C:\Users\marcin\Desktop\magister\src\main.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\main.obj
 C:\Users\marcin\Desktop\magister\src\rendering\Camera.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\Camera.obj
 C:\Users\marcin\Desktop\magister\src\rendering\Shader.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\Shader.obj
-C:\Users\marcin\Desktop\magister\src\rendering\SimpleScene.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\SimpleScene.obj
+C:\Users\marcin\Desktop\magister\src\rendering\Mesh.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\Mesh.obj
+C:\Users\marcin\Desktop\magister\src\rendering\Scene.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\Scene.obj
+C:\Users\marcin\Desktop\magister\src\rendering\Framebuffer.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\Framebuffer.obj

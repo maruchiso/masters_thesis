@@ -10,7 +10,13 @@
     <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\SimpleScene.cpp">
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\Framebuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

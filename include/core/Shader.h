@@ -2,6 +2,10 @@
 
 #include <glad/glad.h>
 
+#include <glm/mat3x3.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/vec3.hpp>
+
 #include <string>
 
 class Shader {
@@ -17,7 +21,13 @@ public:
 
     void bind() const;
     GLuint id() const;
+
     void setMat4(const std::string& uniformName, const float* matrixData) const;
+    void setMat4(const std::string& uniformName, const glm::mat4& matrix) const;
+    void setMat3(const std::string& uniformName, const glm::mat3& matrix) const;
+    void setVec3(const std::string& uniformName, const glm::vec3& value) const;
+    void setFloat(const std::string& uniformName, float value) const;
+    void setInt(const std::string& uniformName, int value) const;
 
 private:
     GLuint m_program;

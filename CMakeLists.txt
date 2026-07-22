@@ -31,7 +31,9 @@ add_executable(MagisterRenderer
     src/main.cpp
     src/rendering/Camera.cpp
     src/rendering/Shader.cpp
-    src/rendering/SimpleScene.cpp
+    src/rendering/Mesh.cpp
+    src/rendering/Scene.cpp
+    src/rendering/Framebuffer.cpp
 )
 
 target_include_directories(MagisterRenderer PRIVATE

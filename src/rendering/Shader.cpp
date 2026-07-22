@@ -73,6 +73,38 @@ void Shader::setMat4(const std::string& uniformName, const float* matrixData) co
     }
 }
 
+void Shader::setMat4(const std::string& uniformName, const glm::mat4& matrix) const {
+    setMat4(uniformName, &matrix[0][0]);
+}
+
+void Shader::setMat3(const std::string& uniformName, const glm::mat3& matrix) const {
+    const GLint location = glGetUniformLocation(m_program, uniformName.c_str());
+    if (location >= 0) {
+        glUniformMatrix3fv(location, 1, GL_FALSE, &matrix[0][0]);
+    }
+}
+
+void Shader::setVec3(const std::string& uniformName, const glm::vec3& value) const {
+    const GLint location = glGetUniformLocation(m_program, uniformName.c_str());
+    if (location >= 0) {
+        glUniform3fv(location, 1, &value[0]);
+    }
+}
+
+void Shader::setFloat(const std::string& uniformName, float value) const {
+    const GLint location = glGetUniformLocation(m_program, uniformName.c_str());
+    if (location >= 0) {
+        glUniform1f(location, value);
+    }
+}
+
+void Shader::setInt(const std::string& uniformName, int value) const {
+    const GLint location = glGetUniformLocation(m_program, uniformName.c_str());
+    if (location >= 0) {
+        glUniform1i(location, value);
+    }
+}
+
 std::string Shader::readTextFile(const std::string& path) {
     std::ifstream file(path, std::ios::in);
     if (!file.is_open()) {

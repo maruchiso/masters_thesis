@@ -1,6 +1,6 @@
 #include "core/Camera.h"
+#include "core/Scene.h"
 #include "core/Shader.h"
-#include "core/SimpleScene.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -98,12 +98,12 @@ int main() {
     std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
 
     try {
-        Shader shader("shaders/fullscreen.vert", "shaders/solid_color.frag");
+        Shader shader("shaders/lit.vert", "shaders/lit.frag");
 
         Camera camera(1280.0f / 720.0f);
         g_camera = &camera;
 
-        SimpleScene scene;
+        Scene scene;
         scene.initialize();
 
         float previousTime = static_cast<float>(glfwGetTime());
