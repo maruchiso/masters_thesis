@@ -1,6 +1,6 @@
 #include "core/Camera.h"
+#include "core/ForwardRenderer.h"
 #include "core/Scene.h"
-#include "core/Shader.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -98,7 +98,7 @@ int main() {
     std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
 
     try {
-        Shader shader("shaders/lit.vert", "shaders/lit.frag");
+        ForwardRenderer forwardRenderer;
 
         Camera camera(1280.0f / 720.0f);
         g_camera = &camera;
@@ -118,12 +118,10 @@ int main() {
             processInput(window, camera, deltaTime);
             scene.update(currentTime);
 
-            const auto viewProjection = camera.projectionMatrix() * camera.viewMatrix();
-
             glClearColor(0.08f, 0.09f, 0.12f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            scene.render(shader, viewProjection);
+            forwardRenderer.render(scene, camera);
 
             glfwSwapBuffers(window);
             glfwPollEvents();
