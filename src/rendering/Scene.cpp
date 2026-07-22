@@ -1,16 +1,6 @@
 #include "core/Scene.h"
 
-#include "core/Shader.h"
-
-#include <glm/gtc/matrix_inverse.hpp>
-
 #include <iterator>
-#include <string>
-
-namespace {
-// Must match MAX_LIGHTS in shaders/lit.frag.
-constexpr int kMaxLights = 8;
-}
 
 Scene::Scene() = default;
 
@@ -64,31 +54,4 @@ void Scene::initialize() {
 }
 
 void Scene::update(float /*elapsedSeconds*/) {
-}
-
-void Scene::render(const Shader& shader, const glm::mat4& viewProjection) const {
-    shader.bind();
-
-    const int lightCount = static_cast<int>(m_lights.size() < kMaxLights ? m_lights.size() : kMaxLights);
-    shader.setInt("uLightCount", lightCount);
-    for (int i = 0; i < lightCount; ++i) {
-        const std::string prefix = "uLights[" + std::to_string(i) + "].";
-        shader.setVec3(prefix + "position", m_lights[i].position);
-        shader.setVec3(prefix + "color", m_lights[i].color);
-        shader.setFloat(prefix + "intensity", m_lights[i].intensity);
-        shader.setFloat(prefix + "radius", m_lights[i].radius);
-    }
-
-    for (const SceneObject& object : m_objects) {
-        const glm::mat4 model = object.modelMatrix();
-        const glm::mat4 mvp = viewProjection * model;
-        const glm::mat3 normalMatrix = glm::inverseTranspose(glm::mat3(model));
-
-        shader.setMat4("uModel", model);
-        shader.setMat4("uMVP", mvp);
-        shader.setMat3("uNormalMatrix", normalMatrix);
-        shader.setVec3("uAlbedo", object.material.albedo);
-
-        object.mesh->draw();
-    }
 }

@@ -1,6 +1,7 @@
 #include "core/Camera.h"
+#include "core/DeferredRenderer.h"
+#include "core/ForwardRenderer.h"
 #include "core/Scene.h"
-#include "core/Shader.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -11,7 +12,11 @@
 
 namespace {
 
+enum class RenderMode { Forward, Deferred };
+
 Camera* g_camera = nullptr;
+DeferredRenderer* g_deferredRenderer = nullptr;
+RenderMode g_renderMode = RenderMode::Forward;
 bool g_firstMouseEvent = true;
 double g_lastMouseX = 0.0;
 double g_lastMouseY = 0.0;
@@ -24,6 +29,9 @@ void framebufferSizeCallback(GLFWwindow* /*window*/, int width, int height) {
     glViewport(0, 0, width, height);
     if (g_camera != nullptr && height > 0) {
         g_camera->setAspectRatio(static_cast<float>(width) / static_cast<float>(height));
+    }
+    if (g_deferredRenderer != nullptr && width > 0 && height > 0) {
+        g_deferredRenderer->resize(width, height);
     }
 }
 
@@ -46,6 +54,15 @@ void mouseMoveCallback(GLFWwindow* /*window*/, double xpos, double ypos) {
     g_lastMouseY = ypos;
 
     g_camera->processMouseDelta(xOffset, yOffset);
+}
+
+// Discrete key-press events (fires once per press, not once per frame while held) --
+// used for the render-mode toggle so it doesn't flicker every frame while Tab is down.
+void keyCallback(GLFWwindow* /*window*/, int key, int /*scancode*/, int action, int /*mods*/) {
+    if (key == GLFW_KEY_TAB && action == GLFW_PRESS) {
+        g_renderMode = (g_renderMode == RenderMode::Forward) ? RenderMode::Deferred : RenderMode::Forward;
+        std::cout << "Render mode: " << (g_renderMode == RenderMode::Forward ? "Forward" : "Deferred") << std::endl;
+    }
 }
 
 void processInput(GLFWwindow* window, Camera& camera, float deltaTime) {
@@ -84,6 +101,7 @@ int main() {
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebufferSizeCallback);
     glfwSetCursorPosCallback(window, mouseMoveCallback);
+    glfwSetKeyCallback(window, keyCallback);
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSwapInterval(1);
 
@@ -98,7 +116,9 @@ int main() {
     std::cout << "OpenGL version: " << glGetString(GL_VERSION) << std::endl;
 
     try {
-        Shader shader("shaders/lit.vert", "shaders/lit.frag");
+        ForwardRenderer forwardRenderer;
+        DeferredRenderer deferredRenderer(1280, 720);
+        g_deferredRenderer = &deferredRenderer;
 
         Camera camera(1280.0f / 720.0f);
         g_camera = &camera;
@@ -108,7 +128,7 @@ int main() {
 
         float previousTime = static_cast<float>(glfwGetTime());
 
-        glEnable(GL_DEPTH_TEST);
+        std::cout << "Press TAB to toggle Forward/Deferred rendering." << std::endl;
 
         while (glfwWindowShouldClose(window) == GLFW_FALSE) {
             const float currentTime = static_cast<float>(glfwGetTime());
@@ -118,21 +138,25 @@ int main() {
             processInput(window, camera, deltaTime);
             scene.update(currentTime);
 
-            const auto viewProjection = camera.projectionMatrix() * camera.viewMatrix();
-
             glClearColor(0.08f, 0.09f, 0.12f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            scene.render(shader, viewProjection);
+            if (g_renderMode == RenderMode::Forward) {
+                forwardRenderer.render(scene, camera);
+            } else {
+                deferredRenderer.render(scene, camera);
+            }
 
             glfwSwapBuffers(window);
             glfwPollEvents();
         }
 
         g_camera = nullptr;
+        g_deferredRenderer = nullptr;
     } catch (const std::exception& exception) {
         std::cerr << exception.what() << std::endl;
         g_camera = nullptr;
+        g_deferredRenderer = nullptr;
         glfwDestroyWindow(window);
         glfwTerminate();
         return 1;
