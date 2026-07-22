@@ -19,18 +19,20 @@ This must be confirmed with the thesis advisor, but it is the working framing fo
 - Build a small controlled scene with a few meshes and materials
 - Scene must support runtime-configurable light count and geometry density (not hand-placed objects), so both can be swept for benchmarking
 - Implement:
+  - Forward Rendering pipeline (baseline)
   - Deferred Shading pipeline
   - Visibility Buffer pipeline
+- All three pipelines render the same `Scene` data (same objects, same lights, same camera) through separate, swappable renderer classes -- this is what makes "identical rendering conditions" true rather than just claimed
 - Collect comparison data across:
   - frame time / FPS, broken down per GPU pass (geometry/visibility pass vs. lighting/shading pass), via GPU timer queries
   - CPU execution time (wall-clock around submission), alongside GPU time, per pass
   - shader invocation counts via `ARB_pipeline_statistics_query` (native OpenGL, no external profiler needed) -- direct evidence for the "shade once per pixel vs. once per pixel per overdraw layer" story
   - memory usage / G-buffer size vs. visibility buffer size, computed analytically from formats + resolution (not measured via vendor-specific VRAM counters)
-  - lighting scalability: frame time vs. light count sweep, both pipelines, geometry held fixed
-  - geometry scalability: frame time vs. triangle count sweep, both pipelines, light count held fixed
-  - overdraw scalability: frame time vs. overlapping-geometry layers, both pipelines, reusing the same object-spawning mechanism as the geometry sweep
-  - the crossover point(s) where one pipeline overtakes the other, and why (bandwidth-bound vs. compute-bound reasoning)
-  - visual correctness (both pipelines must produce matching output for the same scene, using the same shared lighting function), plus a qualitative side-by-side screenshot comparison of edge aliasing
+  - lighting scalability: frame time vs. light count sweep, all three pipelines, geometry held fixed -- this is where Forward Rendering is expected to fall off fastest
+  - geometry scalability: frame time vs. triangle count sweep, all three pipelines, light count held fixed
+  - overdraw scalability: frame time vs. overlapping-geometry layers, all three pipelines, reusing the same object-spawning mechanism as the geometry sweep
+  - the crossover point(s) where one pipeline overtakes another, and why (bandwidth-bound vs. compute-bound reasoning)
+  - visual correctness (all three pipelines must produce matching output for the same scene, using the same shared lighting function), plus a qualitative side-by-side screenshot comparison of edge aliasing
 - Keep the implementation minimal: no complex PBR, no shadows, no volumetrics, no post-processing beyond simple output
 - MSAA support and multi-material variety are discussed in the thesis (both are real, literature-backed advantages of Visibility Buffer) but not implemented -- see "Out of Scope" below
 
@@ -45,19 +47,23 @@ This must be confirmed with the thesis advisor, but it is the working framing fo
    - Simple geometry: cubes, spheres, plane
    - Camera controls (orbit + WASD)
    - One texture or solid-color material
-3. Deferred Shading
+3. Forward Rendering (baseline)
+   - Single pass: geometry and lighting evaluated together, once per object, no intermediate buffer
+   - `ForwardRenderer` owns its shader and draw loop; `Scene` stays pure data so Deferred/Visibility Buffer renderers can consume the same data later
+   - Purpose: the "before" picture -- demonstrates the O(objects x lights) cost that motivates Deferred Shading and Visibility Buffer existing at all, and is the first place the shared lighting function gets validated visually
+4. Deferred Shading
    - Geometry pass: store albedo, normal, depth, material properties
    - Lighting pass: evaluate lights using G-buffer
    - Composite pass to display final image
-4. Visibility Buffer
+5. Visibility Buffer
    - Visibility pass: produce visible triangle/primitive IDs and depth
    - Resolve pass: build visible list
    - Shading pass: shade using the visible data
-5. Architecture Analysis (written alongside implementation, not deferred to Week 8)
-   - Data flow diagrams for both pipelines (geometry/visibility pass -> intermediate buffer -> shading pass -> output)
-   - Buffer organization and memory layout comparison (G-buffer attachments vs. single packed visibility target)
+6. Architecture Analysis (written alongside implementation, not deferred to Week 8)
+   - Data flow diagrams for all three pipelines (geometry/visibility pass -> intermediate buffer, if any -> shading pass -> output)
+   - Buffer organization and memory layout comparison (no intermediate buffer vs. G-buffer attachments vs. single packed visibility target)
    - Analytical memory consumption, memory access count, and bandwidth calculations per pass, derived from formats + resolution + light/object counts -- computed, not measured with an external profiler
-6. Benchmarking and analysis
+7. Benchmarking and analysis
    - Build a benchmark harness: runtime-configurable light count, geometry density, and overdraw layering; GPU timer queries per pass; CSV/log output
    - Run controlled sweeps: (a) light count, (b) geometry density, (c) overdraw layers -- each with the other variables fixed, as separate 1D sweeps rather than a full cross-product grid, to stay within the timeline
    - Measure frame time, per-pass GPU time, CPU time, and shader invocation counts; multiple runs, report stability/variance
@@ -85,7 +91,7 @@ Considered and deliberately cut, to keep the 2-month timeline realistic for a so
 ## 8-Week Timeline
 - Week 1: Setup project and OpenGL basics
 - Week 2: Build a stable rendering loop and generic scene foundation (Mesh/Material/Light/SceneObject, expanded Shader uniforms, Framebuffer wrapper) -- done ahead of Deferred Shading so both pipelines share it
-- Week 3: Implement Deferred Shading; make light count and geometry density runtime-configurable while building it, not later; start drafting its architecture-analysis section (data flow, buffer layout) while it's fresh
+- Week 3: Implement Forward Rendering as an explicit baseline (`ForwardRenderer`, `Scene` as pure data), decide/finalize the shared lighting model, then implement Deferred Shading; make light count and geometry density runtime-configurable while building it, not later; start drafting the architecture-analysis section (data flow, buffer layout) while it's fresh
 - Week 4: Validate Deferred Shading and fix bugs
 - Week 5: Implement Visibility Buffer, sharing the same lighting function as Deferred Shading for a fair visual-correctness comparison; draft its architecture-analysis section too
 - Week 6: Validate Visibility Buffer and compare correctness
@@ -93,4 +99,4 @@ Considered and deliberately cut, to keep the 2-month timeline realistic for a so
 - Week 8: Write thesis chapters (start Introduction/Background earlier, in parallel, rather than only in Week 8) and finalize documentation
 
 ## Next step
-Implement the Deferred Shading pipeline: geometry pass into a `Framebuffer` G-buffer (albedo, normal, depth), then a separate lighting pass reading it back.
+Forward Rendering baseline is done: `ForwardRenderer` owns the shader and draw loop, `Scene` is pure data, lighting stays flat (ambient + Lambertian diffuse only, no specular -- deliberate, matches the minimal-implementation scope). Next: Deferred Shading -- geometry pass into a `Framebuffer` G-buffer (albedo, normal, depth), then a separate lighting pass reading it back.
