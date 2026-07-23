@@ -25,6 +25,9 @@
     <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\DeferredRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\marcin\Desktop\magister\src\rendering\GpuTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\marcin\Desktop\magister\CMakeLists.txt" />

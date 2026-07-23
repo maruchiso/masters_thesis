@@ -19,7 +19,12 @@ public:
     Scene(const Scene&) = delete;
     Scene& operator=(const Scene&) = delete;
 
-    void initialize();
+    // objectCount spawns that many cubes in a 3D grid (beyond the fixed ground plane and
+    // one decorative sphere) -- the grid extends along the camera's view axis, so it
+    // doubles as both the geometry-density and the overdraw benchmark knob. lightCount is
+    // clamped to kMaxLights and arranged procedurally in a ring. Safe to call again at
+    // runtime to rebuild the scene with different counts (see main.cpp's arrow-key controls).
+    void initialize(int lightCount = 2, int objectCount = 5);
     void update(float elapsedSeconds);
 
     const std::vector<SceneObject>& objects() const { return m_objects; }

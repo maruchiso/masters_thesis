@@ -17,7 +17,8 @@ This must be confirmed with the thesis advisor, but it is the working framing fo
 - Use OpenGL as the rendering API
 - Implement a simple rendering engine in C++ with GLFW for window/input and GLAD for OpenGL loading
 - Build a small controlled scene with a few meshes and materials
-- Scene must support runtime-configurable light count and geometry density (not hand-placed objects), so both can be swept for benchmarking
+- Scene must support runtime-configurable light count and geometry density (not hand-placed objects), so both can be swept for benchmarking -- done: `Scene::initialize(lightCount, objectCount)` spawns a ring of lights and a 3D grid of cubes procedurally; live-adjustable via Up/Down/Left/Right while the app runs, and the same signature is what the Week 7 harness will call programmatically
+- Light count is capped at `kMaxLights = 64` (centralized in `include/core/Light.h`, matched by `MAX_LIGHTS` in `shaders/common/lighting.glsl`) -- a plain uniform array, not an SSBO-backed unbounded list, since 64 is generous enough for the sweeps and avoids std140/std430 layout-matching complexity between C++ and GLSL. Revisit only if a benchmark genuinely needs more
 - Implement:
   - Forward Rendering pipeline (baseline)
   - Deferred Shading pipeline
@@ -25,8 +26,8 @@ This must be confirmed with the thesis advisor, but it is the working framing fo
 - All three pipelines render the same `Scene` data (same objects, same lights, same camera) through separate, swappable renderer classes -- this is what makes "identical rendering conditions" true rather than just claimed
 - All shading passes call the same `evaluatePointLight()` from `shaders/common/lighting.glsl`, spliced in via a lightweight `#include` preprocessor in `Shader` -- one copy of the lighting math, not one per pipeline, so it cannot silently drift
 - Collect comparison data across:
-  - frame time / FPS, broken down per GPU pass (geometry/visibility pass vs. lighting/shading pass), via GPU timer queries
-  - CPU execution time (wall-clock around submission), alongside GPU time, per pass
+  - frame time / FPS, broken down per GPU pass (geometry/visibility pass vs. lighting/shading pass), via GPU timer queries -- done: `GpuTimer` (double-buffered `GL_TIME_ELAPSED` queries, non-stalling) wraps each pass in `ForwardRenderer`/`DeferredRenderer`, live in the app's title bar and console (updated twice/sec). Crucially, this is unaffected by vsync, unlike CPU frame time -- the reliable signal even when both pipelines stay under the monitor's frame budget
+  - CPU execution time (wall-clock around submission), alongside GPU time, per pass -- done, same live readout; a V key toggles vsync so the CPU-side FPS number isn't capped at the monitor refresh rate during manual testing
   - shader invocation counts via `ARB_pipeline_statistics_query` (native OpenGL, no external profiler needed) -- direct evidence for the "shade once per pixel vs. once per pixel per overdraw layer" story
   - memory usage / G-buffer size vs. visibility buffer size, computed analytically from formats + resolution (not measured via vendor-specific VRAM counters)
   - lighting scalability: frame time vs. light count sweep, all three pipelines, geometry held fixed -- this is where Forward Rendering is expected to fall off fastest
@@ -68,7 +69,7 @@ This must be confirmed with the thesis advisor, but it is the working framing fo
    - Analytical memory consumption, memory access count, and bandwidth calculations per pass, derived from formats + resolution + light/object counts -- computed, not measured with an external profiler
    - Deferred G-buffer cost as built: 4 (albedo) + 6 (normal) + 4 (depth) = 14 bytes/pixel -- worth citing directly against Visibility Buffer's ~4 bytes/pixel
 7. Benchmarking and analysis
-   - Build a benchmark harness: runtime-configurable light count, geometry density, and overdraw layering; GPU timer queries per pass; CSV/log output
+   - Runtime-configurable light count/geometry density -- done (`Scene::initialize`). Per-pass GPU + CPU timing -- done (`GpuTimer`, live readout). Still needed: an actual sweep harness that drives these programmatically across a range of values and writes CSV output, rather than a human holding down arrow keys
    - Run controlled sweeps: (a) light count, (b) geometry density, (c) overdraw layers -- each with the other variables fixed, as separate 1D sweeps rather than a full cross-product grid, to stay within the timeline
    - Measure frame time, per-pass GPU time, CPU time, and shader invocation counts; multiple runs, report stability/variance
    - Log bandwidth/texture memory metrics (G-buffer size vs. visibility buffer size, computed from formats + resolution)
@@ -95,7 +96,7 @@ Considered and deliberately cut, to keep the 2-month timeline realistic for a so
 ## 8-Week Timeline
 - Week 1: Setup project and OpenGL basics
 - Week 2: Build a stable rendering loop and generic scene foundation (Mesh/Material/Light/SceneObject, expanded Shader uniforms, Framebuffer wrapper) -- done ahead of Deferred Shading so both pipelines share it
-- Week 3: Forward Rendering baseline and Deferred Shading both implemented (`ForwardRenderer`/`DeferredRenderer`, shared lighting via `shaders/common/lighting.glsl`, runtime toggle). Still need: runtime-configurable light count and geometry density (currently still hardcoded in `Scene::initialize()`), and the architecture-analysis write-up while it's fresh
+- Week 3: Forward Rendering baseline and Deferred Shading both implemented (`ForwardRenderer`/`DeferredRenderer`, shared lighting via `shaders/common/lighting.glsl`, runtime toggle), and `Scene` is now procedurally configurable (light count, object count) instead of hardcoded. Still need: the architecture-analysis write-up while it's fresh
 - Week 4: Validate Deferred Shading and fix bugs
 - Week 5: Implement Visibility Buffer, sharing the same lighting function for a fair visual-correctness comparison; draft its architecture-analysis section too
 - Week 6: Validate Visibility Buffer and compare correctness
@@ -103,4 +104,4 @@ Considered and deliberately cut, to keep the 2-month timeline realistic for a so
 - Week 8: Write thesis chapters (start Introduction/Background earlier, in parallel, rather than only in Week 8) and finalize documentation
 
 ## Next step
-Forward Rendering and Deferred Shading are both implemented and toggleable at runtime (Tab key). Before moving to Visibility Buffer: make light count and geometry density runtime-configurable in `Scene` (currently hardcoded), since the benchmark harness in Week 7 depends on that. Then implement Visibility Buffer: visibility pass writing packed triangle/object IDs, resolve pass doing vertex-pulling via SSBOs, shading pass reusing `evaluatePointLight()`.
+Forward Rendering and Deferred Shading are both implemented and toggleable at runtime (Tab key), `Scene` is procedurally configurable (Up/Down = light count, Left/Right = object count), and both pipelines report live GPU per-pass timing + CPU frame time (title bar and console, updated twice/sec; V toggles vsync). Next: implement Visibility Buffer -- visibility pass writing packed triangle/object IDs, resolve pass doing vertex-pulling via SSBOs, shading pass reusing `evaluatePointLight()`. The benchmark *harness* itself (programmatic sweeps + CSV export, vs. a human holding arrow keys) is still Week 7 work, not yet started.

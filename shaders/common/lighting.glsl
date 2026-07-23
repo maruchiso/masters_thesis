@@ -3,7 +3,8 @@
 // Keeping this in exactly one place is what makes "identical lighting math across
 // pipelines" true rather than just claimed -- there is no second copy to drift out of sync.
 
-#define MAX_LIGHTS 8
+// Must match kMaxLights in include/core/Light.h.
+#define MAX_LIGHTS 64
 
 struct PointLight {
     vec3 position;

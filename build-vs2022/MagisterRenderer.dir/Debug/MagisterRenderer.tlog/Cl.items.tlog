@@ -6,3 +6,4 @@ C:\Users\marcin\Desktop\magister\src\rendering\Scene.cpp;C:\Users\marcin\Desktop
 C:\Users\marcin\Desktop\magister\src\rendering\Framebuffer.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\Framebuffer.obj
 C:\Users\marcin\Desktop\magister\src\rendering\ForwardRenderer.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\ForwardRenderer.obj
 C:\Users\marcin\Desktop\magister\src\rendering\DeferredRenderer.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\DeferredRenderer.obj
+C:\Users\marcin\Desktop\magister\src\rendering\GpuTimer.cpp;C:\Users\marcin\Desktop\magister\build-vs2022\MagisterRenderer.dir\Debug\GpuTimer.obj

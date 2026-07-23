@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/GpuTimer.h"
 #include "core/Shader.h"
 
 class Camera;
@@ -19,8 +20,12 @@ public:
     ForwardRenderer(const ForwardRenderer&) = delete;
     ForwardRenderer& operator=(const ForwardRenderer&) = delete;
 
-    void render(const Scene& scene, const Camera& camera) const;
+    // No longer const: render() now records GPU timing state via m_timer.
+    void render(const Scene& scene, const Camera& camera);
+
+    double lastGpuMilliseconds() const { return m_timer.lastElapsedMilliseconds(); }
 
 private:
     Shader m_shader;
+    GpuTimer m_timer;
 };

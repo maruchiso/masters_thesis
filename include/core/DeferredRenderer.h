@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/Framebuffer.h"
+#include "core/GpuTimer.h"
 #include "core/Shader.h"
 
 #include <glad/glad.h>
@@ -23,16 +24,27 @@ public:
     DeferredRenderer(const DeferredRenderer&) = delete;
     DeferredRenderer& operator=(const DeferredRenderer&) = delete;
 
-    void render(const Scene& scene, const Camera& camera) const;
+    // No longer const: render() now records GPU timing state via m_geometryTimer/m_lightingTimer.
+    void render(const Scene& scene, const Camera& camera);
 
     // Must be called whenever the window resizes, so the G-buffer stays pixel-for-pixel
     // matched with the screen. See main.cpp's framebufferSizeCallback.
     void resize(int width, int height);
 
+    double lastGeometryMilliseconds() const { return m_geometryTimer.lastElapsedMilliseconds(); }
+    double lastLightingMilliseconds() const { return m_lightingTimer.lastElapsedMilliseconds(); }
+
+    // Analytical G-buffer footprint at the current resolution -- not a live driver VRAM
+    // query (those are vendor-specific extensions, not portable across GPUs). Computed from
+    // the known attachment formats: 4 B/px albedo (RGBA8) + 6 B/px normal (RGB16F) + 4 B/px depth.
+    double gbufferMemoryMegabytes() const;
+
 private:
     Framebuffer m_gbuffer;
     Shader m_geometryShader;
     Shader m_lightingShader;
+    GpuTimer m_geometryTimer;
+    GpuTimer m_lightingTimer;
     GLuint m_fullscreenVao;
     int m_width;
     int m_height;

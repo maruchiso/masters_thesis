@@ -1,22 +1,20 @@
 #include "core/ForwardRenderer.h"
 
 #include "core/Camera.h"
+#include "core/Light.h"
 #include "core/Scene.h"
 
 #include <glm/gtc/matrix_inverse.hpp>
 
 #include <string>
 
-namespace {
-// Must match MAX_LIGHTS in shaders/common/lighting.glsl.
-constexpr int kMaxLights = 8;
-}
-
 ForwardRenderer::ForwardRenderer()
     : m_shader("shaders/lit.vert", "shaders/lit.frag") {
 }
 
-void ForwardRenderer::render(const Scene& scene, const Camera& camera) const {
+void ForwardRenderer::render(const Scene& scene, const Camera& camera) {
+    m_timer.begin();
+
     // Explicit, not assumed: DeferredRenderer's lighting pass disables depth testing
     // for its fullscreen triangle, so each renderer sets the GL state it needs itself
     // rather than relying on whatever a previously-run renderer left behind.
@@ -49,4 +47,6 @@ void ForwardRenderer::render(const Scene& scene, const Camera& camera) const {
 
         object.mesh->draw();
     }
+
+    m_timer.end();
 }

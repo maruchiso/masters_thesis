@@ -1,17 +1,13 @@
 #include "core/DeferredRenderer.h"
 
 #include "core/Camera.h"
+#include "core/Light.h"
 #include "core/Scene.h"
 
 #include <glm/gtc/matrix_inverse.hpp>
 #include <glm/mat4x4.hpp>
 
 #include <string>
-
-namespace {
-// Must match MAX_LIGHTS in shaders/common/lighting.glsl.
-constexpr int kMaxLights = 8;
-}
 
 DeferredRenderer::DeferredRenderer(int width, int height)
     : m_gbuffer(width, height),
@@ -45,10 +41,11 @@ void DeferredRenderer::resize(int width, int height) {
     m_gbuffer.resize(width, height);
 }
 
-void DeferredRenderer::render(const Scene& scene, const Camera& camera) const {
+void DeferredRenderer::render(const Scene& scene, const Camera& camera) {
     const glm::mat4 viewProjection = camera.projectionMatrix() * camera.viewMatrix();
 
     // ---- Geometry pass: fill the G-buffer, one draw call per object ----------------
+    m_geometryTimer.begin();
     m_gbuffer.bind();
     glEnable(GL_DEPTH_TEST);
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -68,8 +65,10 @@ void DeferredRenderer::render(const Scene& scene, const Camera& camera) const {
     }
 
     Framebuffer::unbind();
+    m_geometryTimer.end();
 
     // ---- Lighting pass: one fullscreen triangle, shading each pixel exactly once ---
+    m_lightingTimer.begin();
     glViewport(0, 0, m_width, m_height);
     glDisable(GL_DEPTH_TEST); // not testing the fullscreen triangle against anything
 
@@ -103,4 +102,12 @@ void DeferredRenderer::render(const Scene& scene, const Camera& camera) const {
     glBindVertexArray(m_fullscreenVao);
     glDrawArrays(GL_TRIANGLES, 0, 3);
     glBindVertexArray(0);
+
+    m_lightingTimer.end();
+}
+
+double DeferredRenderer::gbufferMemoryMegabytes() const {
+    constexpr double kBytesPerPixel = 4.0 /* albedo RGBA8 */ + 6.0 /* normal RGB16F */ + 4.0 /* depth */;
+    const double totalBytes = kBytesPerPixel * static_cast<double>(m_width) * static_cast<double>(m_height);
+    return totalBytes / (1024.0 * 1024.0);
 }
