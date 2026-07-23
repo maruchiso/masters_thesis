@@ -52,6 +52,12 @@ void Camera::processMouseDelta(float xOffset, float yOffset) {
     m_pitch = std::clamp(m_pitch, -89.0f, 89.0f);
 }
 
+void Camera::setPose(const glm::vec3& position, float yaw, float pitch) {
+    m_position = position;
+    m_yaw = yaw;
+    m_pitch = std::clamp(pitch, -89.0f, 89.0f);
+}
+
 glm::mat4 Camera::viewMatrix() const {
     return glm::lookAt(m_position, m_position + front(), m_worldUp);
 }

@@ -1,5 +1,6 @@
 #include "core/Shader.h"
 
+#include <filesystem>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
@@ -113,7 +114,39 @@ std::string Shader::readTextFile(const std::string& path) {
 
     std::stringstream buffer;
     buffer << file.rdbuf();
-    return buffer.str();
+
+    const std::string baseDir = std::filesystem::path(path).parent_path().string();
+    return resolveIncludes(buffer.str(), baseDir);
+}
+
+std::string Shader::resolveIncludes(const std::string& source, const std::string& baseDir) {
+    static const std::string kIncludeToken = "#include \"";
+
+    std::istringstream input(source);
+    std::ostringstream output;
+    std::string line;
+
+    while (std::getline(input, line)) {
+        const size_t tokenPos = line.find(kIncludeToken);
+        if (tokenPos == std::string::npos) {
+            output << line << '\n';
+            continue;
+        }
+
+        const size_t pathStart = tokenPos + kIncludeToken.size();
+        const size_t pathEnd = line.find('"', pathStart);
+        if (pathEnd == std::string::npos) {
+            throw std::runtime_error("Malformed #include directive: " + line);
+        }
+
+        const std::string includeRelativePath = line.substr(pathStart, pathEnd - pathStart);
+        const std::filesystem::path includePath = std::filesystem::path(baseDir) / includeRelativePath;
+
+        // readTextFile recurses here, so nested #include chains resolve too.
+        output << readTextFile(includePath.string()) << '\n';
+    }
+
+    return output.str();
 }
 
 GLuint Shader::compileStage(GLenum type, const std::string& source, const std::string& debugName) {
