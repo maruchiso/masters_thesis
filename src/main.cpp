@@ -6,11 +6,13 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/vec3.hpp>
 
 #include <algorithm>
 #include <exception>
 #include <iomanip>
 #include <iostream>
+#include <iterator>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -19,6 +21,28 @@ namespace {
 
 enum class RenderMode { Forward, Deferred };
 
+// Fixed (lights, objects, camera pose) combos for reproducible A/B comparisons -- select
+// one with number keys 1-4, then Tab freely between Forward/Deferred knowing the scene and
+// viewpoint are frozen. Camera Z is pulled back further for the denser presets so the grid
+// (which grows in all three axes with object count, see Scene::initialize) stays in view.
+struct BenchmarkPreset {
+    const char* label;
+    int lightCount;
+    int objectCount;
+    glm::vec3 cameraPosition;
+    float cameraYaw;
+    float cameraPitch;
+};
+
+// const, not constexpr: glm::vec3's constructor being constexpr isn't guaranteed across
+// GLM configurations, and there's no need for compile-time evaluation here anyway.
+const BenchmarkPreset kBenchmarkPresets[] = {
+    {"Low",     2,  5,    glm::vec3(0.0f, 0.0f, 4.0f),  -90.0f, 0.0f},
+    {"Medium",  16, 200,  glm::vec3(0.0f, 0.0f, 8.0f),  -90.0f, 0.0f},
+    {"High",    64, 800,  glm::vec3(0.0f, 0.0f, 12.0f), -90.0f, 0.0f},
+    {"Extreme", 64, 2000, glm::vec3(0.0f, 0.0f, 16.0f), -90.0f, 0.0f},
+};
+
 Camera* g_camera = nullptr;
 DeferredRenderer* g_deferredRenderer = nullptr;
 Scene* g_scene = nullptr;
@@ -26,6 +50,7 @@ RenderMode g_renderMode = RenderMode::Forward;
 int g_lightCount = 2;
 int g_objectCount = 5;
 bool g_vsyncEnabled = true;
+bool g_resetStats = false;
 bool g_firstMouseEvent = true;
 double g_lastMouseX = 0.0;
 double g_lastMouseY = 0.0;
@@ -71,6 +96,25 @@ void keyCallback(GLFWwindow* /*window*/, int key, int /*scancode*/, int action, 
     if (key == GLFW_KEY_TAB && action == GLFW_PRESS) {
         g_renderMode = (g_renderMode == RenderMode::Forward) ? RenderMode::Deferred : RenderMode::Forward;
         std::cout << "Render mode: " << (g_renderMode == RenderMode::Forward ? "Forward" : "Deferred") << std::endl;
+        g_resetStats = true;
+        return;
+    }
+
+    // Benchmark presets: 1-4 snap scene complexity AND camera pose to a fixed, reproducible
+    // combo. Render mode is deliberately untouched here -- press a preset once, then Tab
+    // between Forward/Deferred to compare the exact same frozen configuration.
+    if (key >= GLFW_KEY_1 && key <= GLFW_KEY_4 && action == GLFW_PRESS) {
+        const size_t presetIndex = static_cast<size_t>(key - GLFW_KEY_1);
+        if (presetIndex < std::size(kBenchmarkPresets) && g_scene != nullptr && g_camera != nullptr) {
+            const BenchmarkPreset& preset = kBenchmarkPresets[presetIndex];
+            g_lightCount = preset.lightCount;
+            g_objectCount = preset.objectCount;
+            g_scene->initialize(g_lightCount, g_objectCount);
+            g_camera->setPose(preset.cameraPosition, preset.cameraYaw, preset.cameraPitch);
+            g_resetStats = true;
+            std::cout << "Preset: " << preset.label << " (Lights: " << g_lightCount
+                      << ", Objects: " << g_objectCount << ")" << std::endl;
+        }
         return;
     }
 
@@ -82,6 +126,7 @@ void keyCallback(GLFWwindow* /*window*/, int key, int /*scancode*/, int action, 
         g_vsyncEnabled = !g_vsyncEnabled;
         glfwSwapInterval(g_vsyncEnabled ? 1 : 0);
         std::cout << "Vsync: " << (g_vsyncEnabled ? "on" : "off") << std::endl;
+        g_resetStats = true;
         return;
     }
 
@@ -111,6 +156,7 @@ void keyCallback(GLFWwindow* /*window*/, int key, int /*scancode*/, int action, 
 
     if (sceneChanged && g_scene != nullptr) {
         g_scene->initialize(g_lightCount, g_objectCount);
+        g_resetStats = true;
         std::cout << "Lights: " << g_lightCount << ", Objects: " << g_objectCount << std::endl;
     }
 }
@@ -189,6 +235,7 @@ int main() {
 
         std::cout << "Press TAB to toggle Forward/Deferred rendering." << std::endl;
         std::cout << "Press UP/DOWN to change light count, LEFT/RIGHT to change object count." << std::endl;
+        std::cout << "Press 1-4 for fixed benchmark presets (Low/Medium/High/Extreme), same camera pose each time." << std::endl;
         std::cout << "Press V to toggle vsync." << std::endl;
         std::cout << "Lights: " << g_lightCount << ", Objects: " << g_objectCount << std::endl;
 
@@ -207,6 +254,15 @@ int main() {
                 forwardRenderer.render(scene, camera);
             } else {
                 deferredRenderer.render(scene, camera);
+            }
+
+            // A preset, mode toggle, vsync toggle, or manual count change all invalidate
+            // whatever's currently accumulating -- start a fresh window instead of blending
+            // pre-change and post-change frames into the same average.
+            if (g_resetStats) {
+                statsTimer = 0.0f;
+                statsFrameCount = 0;
+                g_resetStats = false;
             }
 
             // Update the live stats readout twice a second -- often enough to feel live,
