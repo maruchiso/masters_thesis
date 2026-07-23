@@ -33,6 +33,12 @@ private:
     GLuint m_program;
 
     static std::string readTextFile(const std::string& path);
+
+    // Textual #include "relative/path.glsl" preprocessing -- GLSL has no native #include
+    // in core OpenGL. Paths are resolved relative to the directory of the file that
+    // contains the #include line, the same convention as C/C++'s #include "...".
+    static std::string resolveIncludes(const std::string& source, const std::string& baseDir);
+
     static GLuint compileStage(GLenum type, const std::string& source, const std::string& debugName);
     static GLuint linkProgram(GLuint vertexShader, GLuint fragmentShader);
 };

@@ -34,6 +34,9 @@ add_executable(MagisterRenderer
     src/rendering/Mesh.cpp
     src/rendering/Scene.cpp
     src/rendering/Framebuffer.cpp
+    src/rendering/ForwardRenderer.cpp
+    src/rendering/DeferredRenderer.cpp
+    src/rendering/GpuTimer.cpp
 )
 
 target_include_directories(MagisterRenderer PRIVATE

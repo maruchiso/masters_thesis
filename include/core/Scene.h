@@ -4,17 +4,14 @@
 #include "core/Mesh.h"
 #include "core/SceneObject.h"
 
-#include <glm/mat4x4.hpp>
-
 #include <vector>
-
-class Shader;
 
 // Generic scene container, replacing the old hardcoded SimpleScene.
 // Owns the mesh geometry and a list of instances (SceneObject) placed with it,
-// plus a small set of point lights. Both the Deferred Shading and Visibility
-// Buffer pipelines are meant to iterate the same `objects()`/`lights()` data --
-// only the geometry/shading passes that consume it differ.
+// plus a small set of point lights. Pure data -- it does not know how to draw
+// itself. ForwardRenderer, DeferredRenderer, and later VisibilityBufferRenderer
+// each consume the same objects()/lights() data and decide how to render it,
+// so all pipelines run under identical scene conditions.
 class Scene {
 public:
     Scene();
@@ -22,12 +19,13 @@ public:
     Scene(const Scene&) = delete;
     Scene& operator=(const Scene&) = delete;
 
-    void initialize();
+    // objectCount spawns that many cubes in a 3D grid (beyond the fixed ground plane and
+    // one decorative sphere) -- the grid extends along the camera's view axis, so it
+    // doubles as both the geometry-density and the overdraw benchmark knob. lightCount is
+    // clamped to kMaxLights and arranged procedurally in a ring. Safe to call again at
+    // runtime to rebuild the scene with different counts (see main.cpp's arrow-key controls).
+    void initialize(int lightCount = 2, int objectCount = 5);
     void update(float elapsedSeconds);
-
-    // Simple forward-rendering path used for validating the scene while the
-    // deferred/visibility pipelines are not built yet.
-    void render(const Shader& shader, const glm::mat4& viewProjection) const;
 
     const std::vector<SceneObject>& objects() const { return m_objects; }
     const std::vector<PointLight>& lights() const { return m_lights; }

@@ -11,6 +11,11 @@ public:
     void processKeyboard(bool moveForward, bool moveBackward, bool moveLeft, bool moveRight, float deltaTime);
     void processMouseDelta(float xOffset, float yOffset);
 
+    // Snaps the camera to a known position/orientation -- used by main.cpp's numbered
+    // benchmark presets so switching Forward/Deferred compares the exact same view,
+    // not wherever the camera happened to be flown to by hand.
+    void setPose(const glm::vec3& position, float yaw, float pitch);
+
     glm::mat4 viewMatrix() const;
     glm::mat4 projectionMatrix() const;
     glm::vec3 position() const;
